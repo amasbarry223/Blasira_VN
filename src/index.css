@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Mali-inspired palette */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    /* Green mali */
+    --primary: 120 79% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 45 97% 54%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 210 20% 95%;
+    --muted-foreground: 215 14% 46%;
+
+    --accent: 45 97% 54%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 354 80% 44%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 90%;
+    --input: 214 20% 90%;
+    --ring: 120 79% 40%;
+
+    --radius: 0.75rem;
+
+    /* Custom Blasira tokens */
+    --mali-green: 120 79% 40%;
+    --mali-gold: 45 97% 54%;
+    --mali-red: 354 80% 44%;
+
+    /* Blasira Admin Design System */
+    --blasira-primary: 217 91% 48%; /* #1A56DB */
+    --blasira-secondary: 264 83% 57%; /* #7E3AF2 */
+    --blasira-success: 160 73% 33%; /* #0E9F6E */
+    --blasira-warning: 15 100% 55%; /* #FF5A1F */
+    --blasira-danger: 0 84% 60%; /* #F05252 */
+    --blasira-sidebar-bg: 222 47% 11%; /* #111827 */
+    --blasira-bg: 210 20% 98%; /* #F9FAFB */
+    --blasira-text-primary: 222 47% 11%; /* #111827 */
+    --blasira-text-muted: 215 16% 47%; /* #6B7280 */
+
+    --success: 160 73% 33%;
+    --success-foreground: 0 0% 100%;
+    --warning: 15 100% 55%;
+    --warning-foreground: 0 0% 100%;
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 217 91% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 264 83% 57%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 215 16% 47%;
+    --sidebar-ring: 217 91% 48%;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 120 70% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 45 90% 50%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 45 90% 50%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 354 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 120 70% 45%;
+
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 120 70% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 120 70% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Focus visible for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+}
+
+@layer utilities {
+  .text-gradient-mali {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--mali-green)), hsl(var(--mali-gold)));
+  }
+
+  .bg-gradient-mali {
+    background-image: linear-gradient(135deg, hsl(var(--mali-green)), hsl(var(--mali-gold)));
+  }
+
+  .shadow-mali {
+    box-shadow: 0 8px 30px -8px hsl(var(--mali-green) / 0.25);
+  }
+
+  /* Safe area for mobile devices */
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  /* Improved transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Mask edges for marquee carousel */
+  .mask-edges {
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 5%,
+      black 95%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 5%,
+      black 95%,
+      transparent 100%
+    );
+  }
+
+}
